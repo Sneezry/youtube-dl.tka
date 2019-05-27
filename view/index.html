@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="main">
+  <div class="save-path">
+    <span id="save-path">Select Save Path</span>
+    <button id="change-save-path">Change</button>
+  </div>
+  <div class="url">
+    <input type="text" id="url" autocomplete="off" placeholder="Youtube Video URL">
+    <select id="format-select" disabled>
+      <option value="0" selected>...</option>
+    </select>
+    <button id="download" disabled>Download</button>
+  </div>
+  <div class="sk-cube-grid" id="loading" style="display: none">
+    <div class="sk-cube sk-cube1"></div>
+    <div class="sk-cube sk-cube2"></div>
+    <div class="sk-cube sk-cube3"></div>
+    <div class="sk-cube sk-cube4"></div>
+    <div class="sk-cube sk-cube5"></div>
+    <div class="sk-cube sk-cube6"></div>
+    <div class="sk-cube sk-cube7"></div>
+    <div class="sk-cube sk-cube8"></div>
+    <div class="sk-cube sk-cube9"></div>
+  </div>
+  <div id="info" style="display: none">
+    <progress id="progress" value="22" max="100" label=""></progress>
+    <div id="thumbnail"></div>
+    <div class="sidebar">
+      <div id="title"></div>
+      <div id="description"></div>
+      <div id="format"></div>
+      <div id="size"></div>
+    </div>
+  </div>
+</div>
+<div id="debug"></div>
+<script src="main.js"></script>
+</body>
+</html>

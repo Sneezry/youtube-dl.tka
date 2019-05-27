@@ -1,0 +1,9 @@
+{
+  "displayName": "Youtube DL",
+  "icon": "youtube-dl.png",
+  "main": "index.js",
+  "view": "view",
+  "dependencies": {
+    "youtube-dl": "^2.0.0"
+  }
+}
