@@ -106,6 +106,7 @@ progress:before {
   height: 225px;
   background-color: black;
   background-size: contain;
+  background-repeat: no-repeat;
   float: left;
   margin-right: 20px;
 }
