@@ -44,7 +44,7 @@ exports.download = async function(url, filePath, format, total) {
   const video = youtubedl(url, ['--format=' + format]);
   video.on('data', chunk => {
     pos += chunk.length;
-    const percent = pos / total;
+    const percent = total ? pos / total : 0;
     deltaD += chunk.length;
     deltaT =  new Date().getTime() - lastTime;
     if (deltaT >= 1000) {

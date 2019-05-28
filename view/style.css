@@ -36,13 +36,9 @@ select {
 progress {
   width: 600px;
   height: 20px;
-  border: 1px solid black;
   margin-bottom: 10px;
   position: relative;
 }
-
-progress::-webkit-progress-bar { background: white; }
-progress::-webkit-progress-value  { background: DodgerBlue; }
 
 progress:before {
   content: attr(label);

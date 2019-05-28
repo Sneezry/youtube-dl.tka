@@ -40,6 +40,9 @@ function updateFormat() {
 }
 
 function convertSize(size) {
+  if (isNaN(size)) {
+    return 'Unknown File Size';
+  }
   if (size < 512) {
     return size + 'B';
   }
@@ -107,6 +110,8 @@ async function init() {
     const format = document.getElementById('format-select').value;
     const fsPath = savePath + '/' + videoInfo._filename.replace(/\.[^\.]+$/, '.' + ext);
     document.getElementById('url').disabled = true;
+    document.getElementById('progress').value = 0;
+    document.getElementById('progress').setAttribute('label', '');
     NodeJS.download(url, fsPath, format, total);
     document.getElementById('format-select').disabled = true;
     document.getElementById('download').disabled = true;
@@ -123,12 +128,17 @@ function messager(data) {
       document.getElementById('progress').setAttribute('label', 'Finished!');
       document.getElementById('url').disabled = false;
       document.getElementById('format-select').disabled = false;
+      document.getElementById('download').disabled = false;
     } else {
-      document.getElementById('progress').value = data.data * 100;
+      if (total) {
+        document.getElementById('progress').value = data.data * 100;
+      } else {
+        document.getElementById('progress').removeAttribute('value');
+      }
       if (data.speed !== undefined) {
         speed = data.speed;
       }
-      document.getElementById('progress').setAttribute('label', Math.round(data.data * 100) + '%, ' + convertSize(speed) + '/s');
+      document.getElementById('progress').setAttribute('label', (total ? Math.round(data.data * 100) + '%, ' : '') + convertSize(speed) + '/s');
     }
   }
 }
